@@ -1,13 +1,13 @@
 "use client";
 import { NextUIProvider } from "@nextui-org/react";
-import { ThemeProvider } from "next-themes";
+import { ThemeProvider as NextThemeProvider } from "next-themes";
 
-export function Providers({ children }) {
+export default function Providers({ children }) {
   return (
     <NextUIProvider>
-      <ThemeProvider attribute="class" defaultTheme="dark">
+      <NextThemeProvider attribute="class" defaultTheme="dark">
         {children}
-      </ThemeProvider>
+      </NextThemeProvider>
     </NextUIProvider>
   );
 }
