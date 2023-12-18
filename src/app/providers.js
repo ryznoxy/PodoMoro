@@ -7,9 +7,7 @@ export function Providers({ children }) {
   return (
     <NextUIProvider>
       <NextThemesProvider attribute="class" defaultTheme="dark">
-        <div className="max-w-md mx-auto h-full">
-          <div className="px-2">{children}</div>
-        </div>
+        <div className="max-w-md mx-auto h-full">{children}</div>
       </NextThemesProvider>
     </NextUIProvider>
   );
