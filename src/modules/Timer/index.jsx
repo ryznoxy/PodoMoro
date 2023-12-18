@@ -97,6 +97,7 @@ export default function IndexTimer() {
     return () => {
       clearInterval(timer);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [seconds, pomodoro, shortBreak, longBreak, ticking]);
 
   return (

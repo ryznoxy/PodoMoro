@@ -1,7 +1,10 @@
 import { ThemeSwitcherTodoList } from "@/commons/components/ThemeSwitcherTodoList";
+import dynamic from "next/dynamic";
 import React from "react";
 import { BiLeaf } from "react-icons/bi";
 import Task from "./Task";
+
+const Tasks = dynamic(() => import("./Task"), { ssr: false });
 
 export default function TodoList() {
   return (
@@ -18,7 +21,7 @@ export default function TodoList() {
       <div className="w-full flex justify-center items-center flex-col mt-12">
         <h1 className="text-2xl font-bold">Todo List</h1>
         <div className="mt-4 w-full mx-auto flex justify-center items-center mb-24">
-          <Task></Task>
+          <Tasks></Tasks>
         </div>
       </div>
     </div>

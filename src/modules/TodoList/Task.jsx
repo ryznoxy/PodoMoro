@@ -1,13 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { BiEdit, BiTrash,BiSad } from "react-icons/bi";
+import { BiEdit, BiTrash, BiSad } from "react-icons/bi";
 
 export default function Task() {
   //Task state
   const [task, setTask] = useState(() => {
-    const storedTasks = JSON.parse(localStorage.getItem("task")) || [];
-    return storedTasks;
+    if (typeof window !== "undefined") {
+      // Perform localStorage action
+      const storedTasks = JSON.parse(localStorage.getItem("task")) || [];
+      return storedTasks;
+    }
   });
   const [isDone, setIsDone] = useState(false);
   const [title, setTitle] = useState("");
@@ -74,7 +77,7 @@ export default function Task() {
   return (
     <div className="px-4 w-full max-w-sm">
       <h1 className="text-md font-medium mb-4">
-        Tasks <span className="text-lg">{task.length}</span>
+        Tasks <span className="text-lg">{task?.length}</span>
       </h1>
       <form
         onSubmit={handleSubmit}
@@ -106,14 +109,14 @@ export default function Task() {
         </button>
       </form>
 
-      {task.length === 0 ? (
+      {task.length < 1 ? (
         <div className="w-full flex justify-center items-center flex-col mt-12">
           <BiSad size={64} />
           No Data
         </div>
       ) : (
         <div className="mt-4">
-          {task.map((task) => {
+          {task?.map((task) => {
             return (
               <div
                 key={task.id}

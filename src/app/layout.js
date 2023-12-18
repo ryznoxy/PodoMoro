@@ -19,9 +19,11 @@ export default function RootLayout({ children }) {
     <html lang="en" className="dark">
       <body className={poppins.className}>
         <Providers>
-          <div className="h-full">{children}</div>
-          <div className="w-full">
-            <NavbarGlobals />
+          <div className="max-w-md mx-auto h-full">
+            <div className="h-full ">{children}</div>
+            <div className="w-full">
+              <NavbarGlobals />
+            </div>
           </div>
         </Providers>
       </body>
