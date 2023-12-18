@@ -7,7 +7,6 @@ export default function Task() {
   //Task state
   const [task, setTask] = useState(() => {
     if (typeof window !== "undefined") {
-      // Perform localStorage action
       const storedTasks = JSON.parse(localStorage.getItem("task")) || [];
       return storedTasks;
     }
@@ -124,6 +123,7 @@ export default function Task() {
               >
                 <input
                   type="checkbox"
+                  checked={task.isDone}
                   onChange={() => checked(task.id)}
                   className="w-4 h-4 rounded"
                 />
